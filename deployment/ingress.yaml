@@ -3,13 +3,14 @@ kind: Ingress
 metadata:
   name: argocd-demo-web
   annotations:
+    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules: # ส่วนของการกำหนด Rule ให้กับ Ingress
   - host: "argocd.example.com" # Hostname ที่จะให้ User เข้าใช้งาน
     http:
       paths:
-      - path: /demo-web # Path ที่จะให้เข้ามาใช้งาน Pod
+      - path: / # Path ที่จะให้เข้ามาใช้งาน Pod
         pathType: Prefix # ประเภทของการ Match Path
         backend: # ส่วนของการระบุ Service ที่จะให้นำทางไปยัง Pod
           service:
