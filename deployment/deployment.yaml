@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-demo-web
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: argocd-demo-web
+  template:
+    metadata:
+      labels:
+        app: argocd-demo-web
+    spec:
+      containers:
+      - image: yeasy/simple-web:latest
+        name: argocd-demo-web
+        ports:
+        - containerPort: 80
