@@ -2,13 +2,13 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: argocd-demo-web
-  namespace: develop
+  namespace: uat
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules: # ส่วนของการกำหนด Rule ให้กับ Ingress
-  - host: "develop.local" # Hostname ที่จะให้ User เข้าใช้งาน
+  - host: "uat.local" # Hostname ที่จะให้ User เข้าใช้งาน
     http:
       paths:
       - path: /demo-web # Path ที่จะให้เข้ามาใช้งาน Pod
